@@ -52,7 +52,7 @@ def rand_between(a, b):
 realtime = sys.argv[1] == '--realtime' if len(sys.argv) > 1 else False
 
 if __name__ == '__main__':
-    normal_cycle_time = 15*60 # 15 mins in seconds
+    normal_cycle_time = 30*60 # 30 mins in seconds
     if realtime:
         cycle_time = .1
     else:
@@ -76,7 +76,7 @@ if __name__ == '__main__':
 
     for w, sim_turb in enumerate(sim_turbs):
         sim_turb.setpoint = .8
-        sim_turb.set_od(rand_between(.1*.8, .8*.8))
+        sim_turb.set_od(rand_between(.1*.66, .8*.66))
         scale = normal_cycle_time*10 if realtime else 1
         if realtime:
             sim_turb.controller.k_limits = .05, 25000
